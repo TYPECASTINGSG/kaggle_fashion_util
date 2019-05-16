@@ -47,6 +47,6 @@ def make_mask_img(segment_df):
             seg_img[start_index:start_index+index_len] = int(class_id.split("_")[0])
     
     seg_img = seg_img.reshape((seg_height, seg_width), order='F')
-    seg_img = cv2.resize(seg_img, (WIDTH, HEIGHT), interpolation=cv2.INTER_NEAREST)
+    # seg_img = cv2.resize(seg_img, (WIDTH, HEIGHT), interpolation=cv2.INTER_NEAREST)
     
     return seg_img
