@@ -31,8 +31,9 @@ def run_length(label_vec):
 # dataframe of a single image, multiple classes
 # 0-45 classes, 46 background
 def make_mask_img(segment_df):
-    seg_width = segment_df.at[0, "Width"]
-    seg_height = segment_df.at[0, "Height"]
+    first_item = segment_df.head(1)
+    seg_width = first_item.Width.values[0]
+    seg_height = first_item.Height.values[0]
 
     seg_img = np.full(seg_width*seg_height, CATEGORY_LEN-1, dtype=np.int32)
 
